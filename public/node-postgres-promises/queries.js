@@ -6,7 +6,7 @@ var options = {
 };
 
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://localhost:5432/puppies';
+var connectionString = 'postgres://local.node-api-generic.com:5432/puppies';
 var db = pgp(connectionString);
 
 // add query functions
@@ -20,18 +20,17 @@ module.exports = {
 };
 
 function getAllPuppies(req, res, next) {
-  db.any('select * from pups')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ALL puppies'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
+	console.log('success');
+  // db.any('select * from pups')
+  //   .then(function (data) {
+  //     res.status(200)
+  //       .json({
+  //         status: 'success',
+  //         data: data,
+  //         message: 'Retrieved ALL puppies'
+  //       });
+  //   })
+  //   .catch(function (err) {
+  //     return next(err);
+  //   });
 }
-
-
