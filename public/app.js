@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var cities = {
-	cities:[
+	cities: [
 		"Amsterdam",
 		"Berlin",
 		"New York",
@@ -13,13 +13,15 @@ var cities = {
 	]
 };
 
-app.get('/', function(req, res){
-	res.writeHead(200, { 'Content-Type': 'application/json' });
+app.get('/', function (req, res) {
+	res.writeHead(200, {
+		'Content-Type': 'application/json'
+	});
 	res.write(JSON.stringify(cities));
 	res.end();
 });
 
-var port = process.env.PORT || 3001; 
+var port = process.env.PORT || 3001;
 app.listen(port);
 
 module.exports = app;
